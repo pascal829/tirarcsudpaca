@@ -1,0 +1,33 @@
+{% extends "challenge/base.html" %}
+{% block title %}Meilleur archer du challenge{% endblock %}
+{% block content %}
+<h1 class="mb-1">Récompense spéciale : Meilleur archer du challenge</h1>
+<p class="text-muted">Saison {{ saison }} - Réservé aux archers ayant participé à toutes les manches. Points ajustés par le bonus/malus lié au type d'arc (Article 8).</p>
+
+<div class="table-responsive">
+    <table class="table table-striped bg-white shadow-sm">
+        <thead>
+            <tr>
+                <th>Rang</th>
+                <th>Archer</th>
+                <th>Club</th>
+                <th>Type d'arc</th>
+                <th>Total ajusté</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for entry in classement %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ entry.archer }}</td>
+                <td>{{ entry.archer.club }}</td>
+                <td>{{ entry.archer.get_type_arc_display }}</td>
+                <td>{{ entry.total }}</td>
+            </tr>
+            {% empty %}
+            <tr><td colspan="5">Aucun archer n'a encore participé à toutes les manches.</td></tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

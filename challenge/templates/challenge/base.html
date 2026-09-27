@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}Challenge Arc et Nature Sud PACA{% endblock %}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light d-flex flex-column min-vh-100">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success mb-4">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center gap-2" href="{% url 'challenge:accueil' %}">
+                <img src="{% static 'challenge/img/logo.png' %}" alt="Logo Comité Sud-PACA" height="32">
+                <span>Arc et Nature Sud PACA</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="nav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="{% url 'challenge:accueil' %}">Manches</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'challenge:reglement' %}">Règlement</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'challenge:classement_individuel' %}">Classement individuel</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'challenge:classement_club' %}">Classement club</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'challenge:classement_general' %}">Classement général</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'challenge:meilleur_archer' %}">Meilleur archer</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/admin/" target="_blank" rel="noopener noreferrer">Administration</a></li>
+                    <li class="nav-item"><a class="nav-link" href="https://www.ffta.fr/" target="_blank" rel="noopener noreferrer">Fédération Française de Tir à l'Arc</a></li>
+                    <li class="nav-item"><a class="nav-link" href="https://www.tirarcpaca.fr/" target="_blank" rel="noopener noreferrer">Comité Régional de Tir à l'Arc Sud-PACA</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container pb-5 flex-grow-1">
+        {% block content %}{% endblock %}
+    </div>
+    <footer class="bg-dark text-light-emphasis py-4 mt-auto">
+        <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-2 small">
+            <div class="d-flex align-items-center gap-2">
+                <img src="{% static 'challenge/img/logo.png' %}" alt="Logo" height="24">
+                <span>© {% now "Y" %} Comité Régional de Tir à l'Arc Sud-PACA/Pascal</span>
+            </div>
+            <div>
+                <a href="{% url 'challenge:reglement' %}" class="link-light text-decoration-none">Règlement officiel</a>
+                <span class="mx-2">·</span>
+                <span>Challenge Arc et Nature Sud PACA</span>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

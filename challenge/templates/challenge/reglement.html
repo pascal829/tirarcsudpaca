@@ -1,0 +1,100 @@
+{% extends "challenge/base.html" %}
+{% load static %}
+{% block title %}Règlement du challenge{% endblock %}
+{% block content %}
+<div class="bg-white shadow-sm p-4 rounded">
+    <div class="text-center mb-4">
+        <img src="{% static 'challenge/img/logo.png' %}" alt="Logo du Challenge Arc et Nature Sud PACA" class="img-fluid" style="max-height: 180px;">
+    </div>
+    <h1 class="mb-1">Règlement Officiel du Challenge Arc et Nature Sud PACA</h1>
+    <p class="text-muted">Version 1.0 - Mis à jour le 14 juin 2025</p>
+
+    <h4 class="mt-4">Préambule</h4>
+    <p>Le présent règlement a pour objectif de définir les règles de participation, de déroulement et de classement du Challenge de Tir à l'Arc.</p>
+
+    <h4 class="mt-4">Article 1 – Objectif du challenge</h4>
+    <p>Le Challenge Arc et Nature SUD-PACA a pour objectif de développer la pratique du tir nature dans le comité Sud-PACA, d'encourager la participation des archers à plusieurs compétitions, et de favoriser l'émulation entre clubs dans un cadre sportif, technique et convivial.</p>
+
+    <h4 class="mt-4">Article 2 – Organisation</h4>
+    <p>Le challenge est organisé par le Comité Régional de Tir à l'Arc Sud-PACA. Il se déroule sur plusieurs manches officielles, inscrites au calendrier régional nature. Chaque manche est organisée par un club affilié FFTA de la région et validée par le comité régional.</p>
+
+    <h4 class="mt-4">Article 3 – Participants</h4>
+    <p>Le challenge est réservé aux archers licenciés FFTA rattachés à un club du comité régional Sud-PACA. Les participants sont classés selon la réglementation FFTA en vigueur, c'est-à-dire :</p>
+    <ul>
+        <li>Par catégorie d'âge (U13, U15, U18, Senior 1, Senior 2, Senior 3)</li>
+        <li>Par sexe</li>
+        <li>Par type d'arc (Arc Libre, Arc à Poulies nu, Arc Nu, Arc Droit, Arc Chasse)</li>
+    </ul>
+
+    <h4 class="mt-4">Article 4 – Déroulement des manches</h4>
+    <p>Chaque manche suit le règlement officiel FFTA de tir nature, avec 1 parcours de 21 cibles sur des distances variées, estimées. Le respect des consignes de sécurité, de l'environnement et des décisions des arbitres est obligatoire. L'organisateur local assure la bonne tenue de la compétition et la transmission des résultats au comité régional.</p>
+
+    <h4 class="mt-4">Article 5 – Attribution des points</h4>
+    <p>À chaque manche, des points de classement sont attribués selon la place obtenue dans chaque catégorie :</p>
+    <ul>
+        <li>1er : 40 points</li>
+        <li>2e : 30 points</li>
+        <li>3e : 20 points</li>
+        <li>4e et suivants : 5 points</li>
+    </ul>
+    <p>Le classement général par club est établi à partir du cumul des points des manches. Le classement général individuel est établi sur la moyenne des 3 meilleurs scores.</p>
+
+    <h4 class="mt-4">Article 6 – Conditions pour être classé et récompensé</h4>
+    <p>Pour figurer dans le classement final et être éligible à une récompense, un archer doit :</p>
+    <ol>
+        <li>Avoir participé à au moins 50 % des manches organisées (arrondi à l'entier inférieur)</li>
+        <li>Être classé dans une catégorie comprenant au moins un autre archer ayant également rempli cette condition</li>
+    </ol>
+
+    <h4 class="mt-4">Article 7 – Classements</h4>
+    <p>Sont établis :</p>
+    <ul>
+        <li>Un classement individuel par catégorie (âge/arc/sexe) basé sur la moyenne des 3 meilleurs scores</li>
+        <li>Un classement par club, basé sur les résultats des archers de chaque structure</li>
+        <li>Un classement général du challenge au cumul des manches retenues</li>
+    </ul>
+    <p>En cas d'égalité, les critères suivants sont appliqués dans l'ordre :</p>
+    <ol>
+        <li>Le plus grand nombre de victoires sur les manches</li>
+        <li>Le meilleur score réalisé sur une manche</li>
+        <li>Le plus grand nombre de participations</li>
+    </ol>
+
+    <h4 class="mt-4">Article 8 – Récompenses</h4>
+    <p>Les récompenses sont remises lors de la dernière manche du challenge ou d'un événement régional dédié. Sont récompensés :</p>
+    <ul>
+        <li>Le premier archer de chaque catégorie remplissant les conditions de l'article 6</li>
+        <li>Le meilleur club du challenge</li>
+    </ul>
+
+    <p><strong>Récompense spéciale : Meilleur archer du challenge</strong></p>
+    <p>Une récompense spéciale est décernée au meilleur archer ayant participé à l'ensemble des manches du challenge. Le classement est établi selon le cumul des points obtenus sur toutes les manches, ajusté par un système de bonus/malus en fonction de la catégorie d'arc, comme suit :</p>
+    <div class="table-responsive">
+        <table class="table table-sm table-bordered w-auto">
+            <thead>
+                <tr><th>Type d'arc</th><th>Bonus/Malus par manche</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>Arc à Poulies avec viseur</td><td>–60 points</td></tr>
+                <tr><td>Arc à Poulies Nu</td><td>–40 points</td></tr>
+                <tr><td>Arc Nu (Barebow)</td><td>+0 point</td></tr>
+                <tr><td>Arc Chasse</td><td>+40 points</td></tr>
+                <tr><td>Arc Droit</td><td>+60 points</td></tr>
+            </tbody>
+        </table>
+    </div>
+    <p>Ce système vise à valoriser les performances des archers en tenant compte du niveau d'assistance technique de leur matériel. Les bonus/malus sont appliqués à chaque manche et cumulés dans le total final.</p>
+
+    <h4 class="mt-4">Article 9 – Fair-play et sécurité</h4>
+    <p>Le respect du règlement FFTA, des consignes de sécurité, des arbitres, de l'environnement et des autres participants est obligatoire. Tout comportement antisportif ou dangereux pourra entraîner des sanctions, voire l'exclusion du challenge.</p>
+
+    <h4 class="mt-4">Article 10 – Litiges</h4>
+    <p>En cas de litige, seul le comité régional Sud-PACA est habilité à statuer en dernier ressort. Aucune réclamation extérieure ne pourra être recevable.</p>
+
+    <h4 class="mt-4">Article 11 – Visualisation des résultats</h4>
+    <p>Après chaque manche du challenge, le classement de ce dernier sera mis à jour et visible sur ce site. En cas de contestation, les archers ont 7 jours pour se signaler auprès du comité régional.</p>
+
+    <h4 class="mt-4">Article 12 – Acceptation du règlement</h4>
+    <p>La participation au challenge implique l'acceptation complète et sans réserve du présent règlement.</p>
+</div>
+{% endblock %}

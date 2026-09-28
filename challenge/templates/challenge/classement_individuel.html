@@ -1,0 +1,36 @@
+{% extends "challenge/base.html" %}
+{% block title %}Classement individuel{% endblock %}
+{% block content %}
+<h1 class="mb-4">Classement individuel - Saison {{ saison }}</h1>
+<p class="text-muted">Basé sur la moyenne des 3 meilleurs scores. Seuls les archers éligibles (Article 6) apparaissent.</p>
+
+{% for categorie in categories %}
+<h3 class="mt-4">{{ categorie.label }}</h3>
+<div class="table-responsive">
+    <table class="table table-sm table-striped bg-white shadow-sm">
+        <thead>
+            <tr>
+                <th>Rang</th>
+                <th>Archer</th>
+                <th>Club</th>
+                <th>Moyenne (3 meilleurs)</th>
+                <th>Manches disputées</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for entry in categorie.entries %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ entry.archer }}</td>
+                <td>{{ entry.archer.club }}</td>
+                <td>{{ entry.moyenne }}</td>
+                <td>{{ entry.resultats|length }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% empty %}
+<p>Aucun classement disponible pour cette saison.</p>
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends "challenge/base.html" %}
+{% block title %}Classement par club{% endblock %}
+{% block content %}
+<h1 class="mb-4">Classement par club - Saison {{ saison }}</h1>
+<div class="table-responsive">
+    <table class="table table-striped bg-white shadow-sm">
+        <thead>
+            <tr>
+                <th>Rang</th>
+                <th>Club</th>
+                <th>Points cumulés</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for club, points in classement %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ club }}</td>
+                <td>{{ points }}</td>
+            </tr>
+            {% empty %}
+            <tr><td colspan="3">Aucun résultat pour cette saison.</td></tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

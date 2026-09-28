@@ -1,0 +1,33 @@
+{% extends "challenge/base.html" %}
+{% block title %}{{ manche.nom }}{% endblock %}
+{% block content %}
+<h1 class="mb-1">Manche {{ manche.numero }} - {{ manche.nom }}</h1>
+<p class="text-muted">{{ manche.club_organisateur }} - {{ manche.date|date:"d/m/Y" }} - {{ manche.nb_cibles }} cibles</p>
+
+<div class="table-responsive">
+    <table class="table table-striped bg-white shadow-sm">
+        <thead>
+            <tr>
+                <th>Archer</th>
+                <th>Club</th>
+                <th>Catégorie</th>
+                <th>Score</th>
+                <th>Rang catégorie</th>
+                <th>Points</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for resultat in resultats %}
+            <tr {% if resultat.disqualifie %}class="table-danger"{% endif %}>
+                <td>{{ resultat.archer }}</td>
+                <td>{{ resultat.archer.club }}</td>
+                <td>{{ resultat.archer.libelle_categorie }}</td>
+                <td>{{ resultat.score }}</td>
+                <td>{{ resultat.rang_categorie|default:"-" }}</td>
+                <td>{{ resultat.points_classement|default:"-" }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

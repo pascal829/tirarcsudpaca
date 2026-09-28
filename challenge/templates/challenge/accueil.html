@@ -1,0 +1,40 @@
+{% extends "challenge/base.html" %}
+{% block title %}Manches - Saison {{ saison }}{% endblock %}
+{% block content %}
+<h1 class="mb-4">Manches de la saison {{ saison }}</h1>
+
+{% if manches %}
+<div class="table-responsive">
+    <table class="table table-striped bg-white shadow-sm">
+        <thead>
+            <tr>
+                <th>N°</th>
+                <th>Nom</th>
+                <th>Club organisateur</th>
+                <th>Date</th>
+                <th>Statut</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for manche in manches %}
+            <tr>
+                <td>{{ manche.numero }}</td>
+                <td><a href="{% url 'challenge:manche_detail' manche.numero %}">{{ manche.nom }}</a></td>
+                <td>{{ manche.club_organisateur }}</td>
+                <td>{{ manche.date|date:"d/m/Y" }}</td>
+                <td>
+                    {% if manche.validee %}
+                        <span class="badge bg-success">Validée</span>
+                    {% else %}
+                        <span class="badge bg-secondary">En attente</span>
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% else %}
+<p>Aucune manche enregistrée pour cette saison.</p>
+{% endif %}
+{% endblock %}

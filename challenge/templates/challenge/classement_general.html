@@ -1,0 +1,33 @@
+{% extends "challenge/base.html" %}
+{% block title %}Classement général{% endblock %}
+{% block content %}
+<h1 class="mb-4">Classement général du challenge - Saison {{ saison }}</h1>
+<div class="table-responsive">
+    <table class="table table-striped bg-white shadow-sm">
+        <thead>
+            <tr>
+                <th>Rang</th>
+                <th>Archer</th>
+                <th>Club</th>
+                <th>Catégorie</th>
+                <th>Points cumulés</th>
+                <th>Manches disputées</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for entry in classement %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ entry.archer }}</td>
+                <td>{{ entry.archer.club }}</td>
+                <td>{{ entry.archer.libelle_categorie }}</td>
+                <td>{{ entry.total }}</td>
+                <td>{{ entry.nb_manches }}</td>
+            </tr>
+            {% empty %}
+            <tr><td colspan="6">Aucun résultat pour cette saison.</td></tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
